@@ -277,43 +277,44 @@ def evaluation_candidate_cls(annotation_ts_orig, candidate_result_orig, output_d
     fh = open(output_dir+os.sep+filename+'.cls.eval',mode)
     sys.stdout = fh
     if string:
-        print string
+        print (string)
 
-    print '============================================================================'
-    print 'Evaluation on song '+filename
-    print '============================================================================'
+    print( '============================================================================')
+    print( 'Evaluation on song '+filename)
+    print( '============================================================================')
 
-    print '                      Candidate classification report                       '
-    print '----------------------------------------------------------------------------'
-    print 'Accuracy'
-    print '--------'
-    print '%8.4f'%cls_accuracy
-    print ' '
-    print 'The ratio of (# of answers covered by candidate / # of all answers)'
-    print '-------------------------------------------------------------------'
-    print '%8.4f'%candidate_answer_ratio
-    print ' '
-    print 'The ratio of (# of expression style candidates / # of all candidates)'
-    print '---------------------------------------------------------------------'
-    print '%8.4f'%tech_candidte_ratio
-    print ' '
-    print 'Classification report'
-    print '---------------------'
-    print cls_report
-    print ' '
-    print 'Confusion matrix'
-    print '----------------'
-    print '%8s'%' ',
+    print( '                      Candidate classification report                       ')
+    print(
+            '----------------------------------------------------------------------------')
+    print( 'Accuracy')
+    print( '--------')
+    print( '%8.4f'%cls_accuracy)
+    print( ' ')
+    print( 'The ratio of (# of answers covered by candidate / # of all answers)')
+    print( '-------------------------------------------------------------------')
+    print( '%8.4f'%candidate_answer_ratio)
+    print( ' ')
+    print( 'The ratio of (# of expression style candidates / # of all candidates)')
+    print( '---------------------------------------------------------------------')
+    print( '%8.4f'%tech_candidte_ratio)
+    print( ' ')
+    print( 'Classification report')
+    print( '---------------------')
+    print( cls_report)
+    print( ' ')
+    print( 'Confusion matrix')
+    print( '----------------')
+    print( '%8s'%' ',)
     for t in target_names:
         if t!=target_names[-1]:
-            print '%8s'%t,
+            print ('%8s'%t,)
         else:
-            print '%8s'%t
+            print ('%8s'%t)
     for index, row in enumerate(confusion_table):
-        print '%8s'%target_names[index],
+        print ('%8s'%target_names[index],)
         for e in row:
-            print '%8s'%e,
-        print '\n'
+            print ('%8s'%e,)
+        print ('\n')
     # return to normal:
     sys.stdout = save_stdout
     fh.close()
@@ -382,7 +383,7 @@ def evaluation_note(ans_list, pred_list, output_dir, filename,
         w.writerow(['C_On_P_Off','','','','C_On_P','','','','C_On','','','','Stage'])
     w.writerow(result)
     fh.close()
-    print result
+    print (result)
 
 def remove_poly_esn(esn_list, poly_mask):
     esn_poly_removed = esn_list.copy()
@@ -471,7 +472,7 @@ def evaluation_esn( ans_list, pred_list, output_dir, filename,
     if mode=='w': w.writerow(['', 'Precision', '', 'Recall', '',  'F-measure'])
     for r in data: 
         w.writerow(r)
-        print r
+        print (r)
     fh.close()
 
 def remove_poly_ts(ts, poly_mask):
